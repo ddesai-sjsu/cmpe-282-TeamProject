@@ -1,5 +1,7 @@
 <div class="listingTop">
-    <h2 style="font-family:Quicksand;margin:12px">My Appointments</h2>
+    <h2 class="title">
+        <mat-icon class="icon">event_note</mat-icon><span class="serviceTitle">My Appointments</span></h2>
+
 
     <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" style="margin:12px">
         <div fxFlex="0 1 calc(50% - 40px)" fxFlex.lt-sm="100%">
@@ -20,12 +22,14 @@
                 </mat-expansion-panel-header>
                 <div fxLayout="row wrap" fxLayout.lt-sm="column">
                     <div fxFlex fxFlex.lt-sm="100%">
-                        <mat-label class="fontFamily">By Status:</mat-label>
-                        <mat-select multiple required [(value)]=statusFilter class="width100 selectClass">
-                            <mat-option [value]="'upcoming'">Upcoming</mat-option>
-                            <mat-option [value]="'completed'">Completed</mat-option>
-                            <mat-option [value]="'cancelled'">Cancelled</mat-option>
-                        </mat-select>
+                        <mat-form-field appearance="fill" style="width:100%">
+                            <mat-label class="fontFamily">By Status:</mat-label>
+                            <mat-select multiple required [(value)]=statusFilter class="width100 selectClass">
+                                <mat-option [value]="'upcoming'">Upcoming</mat-option>
+                                <mat-option [value]="'completed'">Completed</mat-option>
+                                <mat-option [value]="'cancelled'">Cancelled</mat-option>
+                            </mat-select>
+                        </mat-form-field>
                     </div>
 
 
@@ -42,7 +46,8 @@
     <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-center" fxLayoutGap="30px" class="listProvider" *ngIf="appointments.length">
         <mat-card fxFlex="0 1 calc(75% - 32px)" fxFlex.lt-sm="100%" class="card" *ngFor="let app of appointments;">
             <mat-card-header>
-                <mat-card-title>Appointment ID:&nbsp;&nbsp;{{app.appointmentID}}</mat-card-title>
+                <mat-card-title>
+                    <mat-icon class="icon">event_available</mat-icon><span class="serviceTitle">Appointment ID:&nbsp;&nbsp;{{app.appointmentID}}</span></mat-card-title>
                 <mat-card-subtitle>
                     <mat-chip-list>
                         <mat-chip selected [color]=getColor(app.status)>{{app.status | titlecase}}</mat-chip>
@@ -50,13 +55,13 @@
                 </mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <div><strong>Service offered to:&nbsp;&nbsp;</strong>{{app.customerFirstName}} &nbsp;{{app.customerLastName}}</div>
-                <div><strong>Service Type:&nbsp;&nbsp;</strong>{{app.serviceType}}</div>
-                <div><strong>Contact:&nbsp;&nbsp;</strong>{{app.customerNumber}}</div>
-                <div><strong>Address:&nbsp;&nbsp;</strong>{{app.customerAddress}}</div>
-                <div><strong>City:&nbsp;&nbsp;</strong>{{app.customerCity}}</div>
-                <div><strong>Date:&nbsp; &nbsp;</strong>{{app.date}}</div>
-                <div><strong>Time:&nbsp;&nbsp;</strong>{{app.time}}</div>
+                <div><strong class="filterBox">Service offered to:&nbsp;&nbsp;</strong>{{app.customerFirstName}} &nbsp;{{app.customerLastName}}</div>
+                <div><strong class="filterBox">Service Type:&nbsp;&nbsp;</strong>{{app.serviceType}}</div>
+                <div><strong class="filterBox">Contact:&nbsp;&nbsp;</strong>{{app.customerNumber}}</div>
+                <div><strong class="filterBox">Address:&nbsp;&nbsp;</strong>{{app.customerAddress}}</div>
+                <div><strong class="filterBox">City:&nbsp;&nbsp;</strong>{{app.customerCity}}</div>
+                <div><strong class="filterBox">Date:&nbsp; &nbsp;</strong>{{app.date}}</div>
+                <div><strong class="filterBox">Time:&nbsp;&nbsp;</strong>{{app.time}}</div>
             </mat-card-content>
             <mat-accordion *ngIf="app.review">
                 <mat-expansion-panel class="borderTye">
