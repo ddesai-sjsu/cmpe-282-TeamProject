@@ -31,6 +31,16 @@
 
 ### Pre-requisites Set Up:
 
+## Architect Diagram:
+
+![](images/ArchitectDiagram.png)
+
+## UML Diagram
+
+![](images/UMLDiagram.png)
+
+
+
 ###### Frontend:
 
 Pre-requisites: 
