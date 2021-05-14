@@ -72,3 +72,48 @@ Server will be running on ‘http://localhost:4200’
     ```python3 flask_app.py```
 
 
+### Website Screenshots
+
+#### Login
+![](WebsiteScreenshots/login.png)
+
+#### Customer Register
+![](WebsiteScreenshots/register1.png)
+
+#### Provider Register
+![](WebsiteScreenshots/register2.png)
+
+#### Customer Home Page(List of services)
+![](WebsiteScreenshots/services.png)
+
+![](WebsiteScreenshots/services2.png)
+
+#### Service Providers Page
+![](WebsiteScreenshots/providerList.png)
+
+#### Book Appointment
+![](WebsiteScreenshots/bookAppointment.png)
+
+#### Customer Appointments
+![](WebsiteScreenshots/customerAppointments1.png)
+
+
+![](WebsiteScreenshots/customerAppointments2.png)
+
+#### Review Provider
+
+![](WebsiteScreenshots/review.png)
+
+#### Provider Reviews
+![](WebsiteScreenshots/customerReviewSubmitted.png)
+
+#### Customer Edit Profile
+![](WebsiteScreenshots/customerProfile.png)
+
+#### Provider Appointments
+![](WebsiteScreenshots/providerAppointments.png)
+
+#### Provider Profile
+![](WebsiteScreenshots/providerProfile.png)
+
+
