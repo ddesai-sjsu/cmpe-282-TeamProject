@@ -31,8 +31,6 @@
         * Update the profile
 
 
-### Pre-requisites Set Up:
-
 ## Architect Diagram:
 
 ![](images/ArchitectDiagram.png)
@@ -41,7 +39,7 @@
 
 ![](images/UMLDiagram.png)
 
-
+### Pre-requisites Set Up:
 
 ###### Frontend:
 
