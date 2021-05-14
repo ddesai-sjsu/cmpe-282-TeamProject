@@ -98,6 +98,12 @@ Server will be running on ‘http://localhost:4200’
 #### AWS DynamoDB
 ![](images/DynamoDB.png)
 
+#### AWS Certificate Manager 
+![](images/Certificate.jpeg)
+
+#### AWS Route53
+![](images/Route53.jpeg)
+
 
 
 ### Website Screenshots
