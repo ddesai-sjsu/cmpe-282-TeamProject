@@ -10,13 +10,6 @@ import os
 # S3_URL = os.getenv("S3_BUCKET", None)
 # CLOUD_FRONT_URL = os.getenv("CLOUD_FRONT_URL", None)
 
-AWS_ACCESS_KEY_ID='AKIAT4M2Z3IG3XN3BAVP'
-AWS_SECRET_ACCESS_KEY='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'
-AWS_REGION="us-east-1"
-COGNITO_USER_POOL_ID="us-east-1_H8LF61zTj"
-COGNITO_APP_CLIENT_ID="37a456ds565vfclm5d8sgs8aep"
-S3_BUCKET="profileimagemyskills"
-S3_URL="s3://profileimagemyskills/"
 
 # HOST_NAME = os.getenv("HOST_NAME", "localhost")
 # HOST_PORT = os.getenv("HOST_PORT", "8000")
