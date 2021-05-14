@@ -80,6 +80,24 @@ Server will be running on ‘http://localhost:4200’
     ```pip3 install -r requirements.txt```
 
     ```python3 flask_app.py```
+    
+ ### AWS Configuration Screenshots
+
+#### AWS Cognito
+![](images/Cognito.png)
+
+#### AWS Amplify
+![](images/amplify.png)
+
+#### AWS S3
+![](images/S3.png)
+
+#### AWS CloudFront
+![](images/CloudFront.png)
+
+#### AWS DynamoDB
+![](images/DynamoDB.png)
+
 
 
 ### Website Screenshots
