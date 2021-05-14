@@ -45,6 +45,6 @@ elif S3_BUCKET is None:
 elif S3_URL is None:
     print("Please set S3_URL !!!")
     sys.exit(1)
-# elif CLOUD_FRONT_URL is None:
-#     print("Please set CLOUD_FRONT_URL !!!")
-#     sys.exit(1)
+ elif CLOUD_FRONT_URL is None:
+    print("Please set CLOUD_FRONT_URL !!!")
+    sys.exit(1)
