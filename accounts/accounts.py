@@ -703,7 +703,7 @@ def listCustomerAppointments(userID):
        else:
            errData = {
                "success": "false",
-               "Message": "Unable to fetch data"
+               "Message": "Unable to fetch the given data"
            }
            return errData
     
