@@ -39,6 +39,7 @@
 
 ![](images/UMLDiagram.png)
 
+## [Project Board](https://trello.com/invite/b/a9uhsd3Z/cac9542dbbbb51d23d3ec2afe5f1bbce/cmpe282-cloudservices)
 ### Pre-requisites Set Up:
 
 ###### Frontend:
