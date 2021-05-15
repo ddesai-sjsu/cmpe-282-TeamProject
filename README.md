@@ -40,6 +40,15 @@
 ![](images/UMLDiagram.png)
 
 ## [Project Board](https://trello.com/invite/b/a9uhsd3Z/cac9542dbbbb51d23d3ec2afe5f1bbce/cmpe282-cloudservices)
+We maintained a project board on trello and had bi-weekly sprint where we met daily to discuss on the task progress. This help in collaboration, communication, feedback, resolving blockers, resolving depencies etc.
+Sprint Backlog
+![](cmpe282-projectBoard/sprintBacklog.png)
+Sprint Inprogress
+![](cmpe282-projectBoard/sprintInProgress.png)
+Sprint InReview
+![](cmpe282-projectBoard/sprintInreview.png)
+Sprint Completed
+![](cmpe282-projectBoard/sprintCompleted.png)
 ### Pre-requisites Set Up:
 
 ###### Frontend:
