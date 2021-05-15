@@ -104,7 +104,24 @@ Server will be running on ‘http://localhost:4200’
 #### AWS Route53
 ![](images/Route53.jpeg)
 
+### Automate Deployment 
 
+#### Login Page
+![](images/login.png)
+
+#### Jenkins Dashboard
+![](images/dashboard1.png)
+
+![](images/dashboard.png)
+
+#### Pipeline Configuration 
+![](images/pipeline1.png)
+
+![](images/pipeline2.png)
+
+![](images/pipeline3.png)
+
+![](images/pipeline4.png)
 
 ### Website Screenshots
 
