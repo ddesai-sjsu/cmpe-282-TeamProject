@@ -45,11 +45,11 @@ We maintained a project board on trello and had bi-weekly sprint where we met da
 Sprint Backlog </br>
 ![](cmpe282-projectBoard/sprintBacklog.PNG)
 Sprint Inprogress </br>
-![](cmpe282-projectBoard/sprintInProgress.PNG)
+![](cmpe282-projectBoard/sprintInprogress.PNG)
 Sprint InReview </br>
-![](cmpe282-projectBoard/sprintInreview.PNG)
+![](cmpe282-projectBoard/sprintInReview.PNG)
 Sprint Completed </br>
-![](cmpe282-projectBoard/sprintCompleted.PNG)
+![](cmpe282-projectBoard/sprintComplete.PNG)
 ### Pre-requisites Set Up:
 
 ###### Frontend:
