@@ -123,6 +123,21 @@ Server will be running on ‘http://localhost:4200’
 
 ![](images/pipeline4.png)
 
+#### Build History 
+![](images/buildhistory.png)
+
+#### Console Output 
+![](images/output1.png)
+
+![](images/output2.png)
+
+![](images/output3.png)
+
+#### Git Webhook
+![](images/gitwebhook.png)
+
+![](images/webhook2.png)
+
 ### Website Screenshots
 
 #### Login
