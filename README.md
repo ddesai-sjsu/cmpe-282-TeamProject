@@ -151,3 +151,309 @@ Server will be running on ‘http://localhost:4200’
 ![](WebsiteScreenshots/providerProfile.png)
 
 
+###### Backend APIs Request and Response
+
+* Create new user on terminal
+
+```
+    echo -n sampleuser@gmail.com:@SampleUser1234 | base64
+```
+Output
+```
+c2FtcGxldXNlckBnbWFpbC5jb206QFNhbXBsZVVzZXIxMjM0
+```
+
+
+1. ```http://<host-name>/account/signin```
+
+    Request:
+        * Add Authorization Header as follows:
+        ```Authorization: Basic <Base64 username:password>```
+
+    Response:
+        ```{
+            "status": 200,
+            "success": false,
+            "data": {
+                    "accessToken": <access_token>,
+                    "profile":{
+                        <user profile data>
+                    }
+            }
+        }```
+
+2. ```http://<host-name>/account/signup```
+
+    Request:
+        * Add Authorization Header as follows:
+        ```Authorization: Basic <Base64 username:password>```
+        * Request Body
+            <Pass request body in json as discussed>
+
+
+3. ```http://<host-name>/account/signout```
+
+    Pass access token obtain while signing in as Bearer token in request header
+    Request:
+        * Add Authorization Header as follows:
+        ```Authorization: Bearer <access token>```
+
+4. ```http://<host-name>/account/delete/<usertype>```
+
+    Pass access token obtain while signing in as Bearer token in request header
+    Request:
+        * Add Authorization Header as follows:
+        ```Authorization: Bearer <access token>```
+
+    * Pass usertype in path parameter
+
+
+5. ```http://<host-name>/account/profile/<usertype>```
+
+    Request:
+        * Pass access token obtain while signing in as Bearer token in request header
+        * Pass usertype in path parameter
+        
+            * Add Authorization Header as follows:
+            ```Authorization: Bearer <access token>```
+        * Body: pass request body in json, make sure keyname are matching as discussed
+    
+
+6. ```http://<host-name>/account/profile/<usertype>/upload```
+
+    Pass access token obtain while signing in as Bearer token in request header
+    Request:
+        * Add Authorization Header as follows:
+        ```Authorization: Bearer <access token>```
+
+    * Pass usertype in path parameter
+
+    * Pass image in Form data, and make sure file key name is ```profile_image```
+
+
+* Sample Provider Data
+```
+{
+    "email": "david@gmail.com",
+    "userType": "provider",
+    "firstName": "David",
+    "lastName": "Jhon",
+    "address": "One Washington Square",
+    "area": "Downtown",
+    "city": "San Jose",
+    "phone": "+11234567890",
+    "time": "9:00AM-5:00PM",
+    "days": ["Monday", "Tuesday"],
+    "skillSet": [
+        {
+            "name": "Plumber",
+            "price": 500
+        }
+    ]
+}
+```
+
+* Sample Consumer Data
+
+```
+{
+    "email": "alina@gmail.com",
+    "userType": "consumer",
+    "firstName": "Alina",
+    "lastName": "Mccarthy",
+    "address": "One Washington Square",
+    "area": "Downtown",
+    "city": "San Jose",
+    "phone": "+11234567890"
+}
+```
+
+7. To get the list of providers based on the skillSet:
+   ``` http://127.0.0.1:5000/account/services ```
+   
+   API Request:
+   ```
+   Params:
+   skillSet=‘name of the service to be fetched’
+   
+   API Response:
+
+   [
+    {
+        "address": "Gunj circle",
+        "area": "The New palace",
+        "city": "Raichur",
+        "days": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "email": "john.doe@mailinator.com",
+        "firstname": "John",
+        "image": "https://d2i70qtaco3lqu.cloudfront.net/maid.png",
+        "lastname": "Doe",
+        "phone": "+918796533222",
+        "price": "600",
+        "rating": "3.0",
+        "review": [
+            "The person did an amazing job and is very skilled in what he does",
+            "Below average work"
+        ],
+        "time": "10:00AM-05:00PM",
+        "uuid": "d3d6f4c9-9672-4937-bccf-bd19733cacb2"
+    },
+    {
+        "address": "Whitehouse",
+        "area": "MG Road",
+        "city": "Washington ",
+        "days": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "email": "donald.trump@mailinator.com",
+        "firstname": "Donald",
+        "image": "None",
+        "lastname": "Trump",
+        "phone": "+919876543221",
+        "price": "200",
+        "rating": "4.0",
+        "review": [
+            "Not bad",
+            "Very Good"
+        ],
+        "time": "10:00AM-05:00PM",
+        "uuid": "c3b3b606-f1de-415b-b623-0740a4629e87"
+    }
+   ]
+   ```
+
+8. To book an appointment
+   ``` POST http://<hostname>/user/<userID>/appointments ```
+   ```
+    Request:
+      * Add Authorization Header as follows:
+      ```Authorization: Basic <Base64 username:password>```
+      * Request Body
+            <Pass request body in json>
+   API Response:  Response on the appointment booked success or failure
+   {
+      "Status": "success",
+	  "Message": "Successfully booked and appointment"
+   }
+   ```
+9. To update an appointment status
+   ``` PATCH http://<hostname>/users/<userID>/appointments/<appointmentID> ```
+   ```
+    Request: 
+      * Add Authorization Header as follows:
+      ```Authorization: Basic <Base64 username:password>```
+      * Request Body
+            {
+	       "status": "completed"
+	     }
+    Response:
+       {
+          "Status": "success",
+          "Message": "Successfully booked and appointment"
+       }
+   ```
+9. To rate and review an appointments
+   ``` PATCH http://<hostname>/users/<userID>/appointments/<appointmentID>/ratingAndReview ```
+   ```
+    Request:
+     * Add Authorization Header as follows:
+	  ```Authorization: Basic <Base64 username:password>```
+     * Request Body
+	 {
+           "rating": "3"
+           "review": "This person is very skilled at what he does"
+	 }
+    Response:
+     {
+	 "Status": "success"
+	 "Message": "Successfully rated and reviewed the appointment"
+     }
+   ```
+10. To get all the appointments booked by the provider:
+   ``` http://127.0.0.1:5000/user/userID/providerAppointments ```
+   
+   API Response: Will get the list of all the appointments booked by the provider.
+   
+   ```
+   [
+    {
+        "appointmentID": "924c3914-8d33-4142-a45e-9c4b41e85d0c",
+        "city": "gandinagar",
+        "customerAddress": "#23 2nd block,4th street,gandinagar 340021",
+        "customerEmail": "xyz@gmail.com",
+        "customerNumber": "+91 9823674512",
+        "customerUsername": "Vishnu",
+        "date": "13-Jan-2020",
+        "day": "Mon",
+        "rating": "6",
+        "review": "The electrician is good at his work",
+        "serviceType": "electrician",
+        "status": "upcoming",
+        "time": "09:15AM-11:30AM"
+    },
+    {
+        "appointmentID": "924c3914-8d33-4142-a45e-9c4b41e85gtc",
+        "city": "gandinagar",
+        "customerAddress": "#743 2nd block,4th street,Tnagar gandinagar 340001",
+        "customerEmail": "abc@gmail.com",
+        "customerNumber": "7234781290",
+        "customerUsername": "Bala",
+        "date": "13-Feb-2020",
+        "day": "Thr",
+        "rating": "5",
+        "review": "The electrician did an average work",
+        "serviceType": "electrician",
+        "status": "completed",
+        "time": "02:30PM-03:30PM"
+    },
+   ]   
+   ```
+11. To get all the appointments booked by the Consumer:
+   ``` http://127.0.0.1:5000/user/627userID/customerAppointments ```
+   
+   API Response: Will get the list of all the appointments booked by the Customer.
+   
+   ```
+   [
+    {
+        "appointmentID": "924c3914-8d33-4142-a45e-9c4b41e85d0c",
+        "city": "gandinagar",
+        "customerAddress": "#23 2nd block,4th street,gandinagar 340021",
+        "customerEmail": "xyz@gmail.com",
+        "customerNumber": "+91 9823674512",
+        "customerUsername": "Vishnu",
+        "date": "13-Jan-2020",
+        "day": "Mon",
+        "rating": "6",
+        "review": "The electrician is good at his work",
+        "serviceType": "electrician",
+        "status": "upcoming",
+        "time": "09:15AM-11:30AM"
+    },
+    {
+        "appointmentID": "924c3914-8d33-4142-a45e-9c4b41e85gtc",
+        "city": "gandinagar",
+        "customerAddress": "#743 2nd block,4th street,Tnagar gandinagar 340001",
+        "customerEmail": "abc@gmail.com",
+        "customerNumber": "7234781290",
+        "customerUsername": "Bala",
+        "date": "13-Feb-2020",
+        "day": "Thr",
+        "rating": "5",
+        "review": "The electrician did an average work",
+        "serviceType": "electrician",
+        "status": "completed",
+        "time": "02:30PM-03:30PM"
+    },
+   ]
+   ```
